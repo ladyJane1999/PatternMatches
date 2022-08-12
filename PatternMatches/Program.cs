@@ -39,7 +39,6 @@ static bool isLowPowerVechicle(object vechicle, bool isElectro)
  
     }
 
-
     object obj2 = new MotoSycele(new Engine1(90));
     object obj1 = new Car1(new Engine1(190));
     object obj3 = new SmartCar(isLowPowerVechicle(obj1, true));
