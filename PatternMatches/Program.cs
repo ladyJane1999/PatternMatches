@@ -3,7 +3,7 @@
 // Task
 object obj = new Car(new Engine(105));
 
-var isCarWith105PH = obj is Car{ Engine.power: 105 };
+var isCarWith105PH = obj is Car { Engine.power: 105 };
 
 if (obj is Car { Engine.power: 105 })
 {
@@ -19,12 +19,12 @@ static bool isLowPowerVechicle(object vechicle, bool isElectro)
     {
     vechicle = vechicle ?? throw new ArgumentNullException("null");
 
-    if (vechicle is Car1 { engine1.power: < 100  } || vechicle is MotoSycele { engine1.power: < 100 }|| vechicle is Transport && isElectro)
+    if (vechicle is SmartCar { isLowPowerVechicle: true } || vechicle is Car1 { engine1.power: < 100  } || vechicle is MotoSycele { engine1.power: < 100 }|| vechicle is Transport && isElectro)
     {
         Console.WriteLine(vechicle + " " + "Power is low");
         return true;
     }
-    else if(vechicle is Car1 { engine1.power: > 100 } || vechicle is MotoSycele { engine1.power: > 100 })
+    else if(vechicle is SmartCar { isLowPowerVechicle: false } || vechicle is Car1 { engine1.power: > 100 } || vechicle is MotoSycele { engine1.power: > 100 })
     {
         Console.WriteLine(vechicle + " " + "Power ");
         return false;
