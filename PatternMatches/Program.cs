@@ -5,12 +5,11 @@ object obj = new Car(new Engine(105));
 
 var isCarWith105PH = obj is Car;
 
-if (obj is Car)
+if (obj is Car { Engine.power: 105 })
 {
+    var res = obj as Car;
 
-    var o1 = obj as Car;
-
-    Console.WriteLine(o1);
+    Console.WriteLine(res.Engine.power);
 }
 
 Console.WriteLine(isCarWith105PH);
