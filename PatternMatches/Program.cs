@@ -19,35 +19,24 @@ Console.WriteLine(isCarWith105PH);
 
 static bool isLowPowerVechicle(object vechicle, bool isElectro)
     {
-    
-    switch (vechicle)
-        {
-            case Transport motoSycele when isElectro:
+  
+    vechicle = vechicle ?? throw new ArgumentNullException("null");
 
-            Console.WriteLine("Electtro");
-
-            return true;
-
-        case Car1 car1:
-
-            var v = vechicle as Car1;
-
-            return v.engine1.power < 100;
-
-        case MotoSycele motoSycele:
-
-            var m = vechicle as MotoSycele;
-
-            return m.engine1.power < 100;
-
-        case null:
-                throw new ArgumentNullException("Null");
-              
-            default:
-                throw new ArgumentException("Invalid object");
-               
-        }
-      
+    if (vechicle is Car1 { engine1.power: < 100  } || vechicle is MotoSycele { engine1.power: < 100 }|| vechicle is Transport && isElectro)
+    {
+        Console.WriteLine(vechicle + " " + "Power is low");
+        return true;
+    }
+    else if(vechicle is Car1 { engine1.power: > 100 } || vechicle is MotoSycele { engine1.power: > 100 })
+    {
+        Console.WriteLine(vechicle + " " + "Power ");
+        return false;
+    }
+    else
+    {
+        throw new ArgumentException("Invalid object");
+    }
+ 
     }
 
 
