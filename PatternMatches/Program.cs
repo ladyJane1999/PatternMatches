@@ -16,10 +16,8 @@ if (obj is Car)
 Console.WriteLine(isCarWith105PH);
 
 // Task 1
-
 static bool isLowPowerVechicle(object vechicle, bool isElectro)
     {
-  
     vechicle = vechicle ?? throw new ArgumentNullException("null");
 
     if (vechicle is Car1 { engine1.power: < 100  } || vechicle is MotoSycele { engine1.power: < 100 }|| vechicle is Transport && isElectro)
