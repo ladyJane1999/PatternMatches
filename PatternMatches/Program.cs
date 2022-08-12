@@ -3,7 +3,7 @@
 // Task
 object obj = new Car(new Engine(105));
 
-var isCarWith105PH = obj is Car;
+var isCarWith105PH = obj is Car{ Engine.power: 105 };
 
 if (obj is Car { Engine.power: 105 })
 {
